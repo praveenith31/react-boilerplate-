@@ -19,11 +19,9 @@ export default class Main extends Component {
   }
 
   incrementCounter() {
-    this.setState(function(prevState, props) {
-      return {
-        counter: prevState.counter + 1
-      };
-    });
+    this.setState((prevState, props) => ({
+      counter: prevState.counter + 1
+    }));
   }
 
   render() {
