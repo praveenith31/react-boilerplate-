@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Container from './Container';
+import SomeApp from './SomeApp';
 import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import * as reducers from '../reducers';
@@ -11,7 +11,7 @@ export default class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        {() => <Container /> }
+        {() => <SomeApp /> }
       </Provider>
     );
   }
