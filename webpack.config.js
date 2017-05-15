@@ -1,5 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
+var ignore = new webpack.IgnorePlugin(/\.svg$/);
 
 module.exports = {
   devtool: 'eval',
@@ -13,30 +14,19 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: '/static/'
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
-  ],
+  plugins: [ignore],
   resolve: {
     alias: {
-      'redux': path.join(__dirname, 'node_modules/redux')
+      'redux': path.join(__dirname, 'node_modules/redux'),
+      'react/lib/ReactMount': 'react-dom/lib/ReactMount'
     },
     extensions: ['', '.js']
   },
   module: {
     loaders: [{
       test: /\.js$/,
-      loaders: ['react-hot', 'babel'],
-      exclude: /node_modules/,
-      include: __dirname
-    }, {
-      test: /\.js$/,
-      loaders: ['babel'],
-      include: path.join(__dirname, '..', '..', 'src')
-    }, {
-      test: /\.css?$/,
-      loaders: ['style', 'raw'],
-      include: __dirname
+      loaders: ['react-hot', 'babel?' + JSON.stringify({presets: ['react', 'es2015']})],
+      exclude: /node_modules/
     }]
   }
 };

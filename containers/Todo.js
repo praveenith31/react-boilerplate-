@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { Connector } from 'react-redux';
-import Main from '../components/Main';
+import TodoActions from '../components/TodoActions';
+import TodoList from '../components/TodoList';
 import * as SomeappActions from '../actions/SomeappActions';
-import SomeApp from './SomeApp';
-import TodoList from './Todo';
 
-export default class Container extends React.Component {
+export default class TodoApp extends Component {
   render() {
     return (
       <div>
-      	<SomeApp />
-      	<TodoList />
+        <TodoActions />
+        <TodoList />
       </div>
     );
   }
