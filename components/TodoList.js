@@ -9,7 +9,7 @@ export default class TodoList extends Component {
 
   render() {
     return (
-    	<ul class="buttons-wrapper">
+    	<ul className="buttons-wrapper">
     		<TodoTask />
     	</ul>
     );

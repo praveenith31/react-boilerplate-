@@ -7,9 +7,7 @@ import * as SomeappActions from '../actions/SomeappActions';
 export default class SomeApp extends Component {
   render() {
     return (
-      <Connector select={state => ({ someapp: state.someapp })}>
-        {this.renderChild}
-      </Connector>
+      this.renderChild
     );
   }
 
